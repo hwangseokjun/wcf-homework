@@ -9,6 +9,9 @@ namespace COM.Dtos
     public class ModifyRequestDTO
     {
         public int Id { get; set; }
-
+        public string ProjectNo { get; set; }
+        public string MillSheetNo { get; set; }
+        public string DocMngNo { get; set; }
+        public DateTime IssuedDate { get; set; }
     }
 }

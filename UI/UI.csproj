@@ -53,6 +53,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CalendarCell.cs" />
+    <Compile Include="Controls\CalendarColumn.cs" />
+    <Compile Include="Controls\CalendarEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DummyTreeNode.cs" />
+    <Compile Include="Controls\LazyTreeNode.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +72,7 @@
     <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconType.cs" />
     <Compile Include="Models\MillCertificateSheet.cs" />
     <Compile Include="Models\RegisterSheet.cs" />
     <Compile Include="Models\TreePath.cs" />

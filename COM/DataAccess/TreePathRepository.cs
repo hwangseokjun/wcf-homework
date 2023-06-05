@@ -10,6 +10,9 @@ namespace COM.DataAccess
 {
     public class TreePathRepository : ITreePathRepository
     {
-
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

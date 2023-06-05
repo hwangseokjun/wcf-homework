@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\GlobalErrorHandler.cs" />
     <Compile Include="Exceptions\GlobalErrorHandlerBehaviorAttribute.cs" />
+    <Compile Include="IoC\Container.cs" />
     <Compile Include="MillCertificateSheetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreePathService.cs" />

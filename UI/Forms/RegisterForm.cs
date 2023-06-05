@@ -72,7 +72,7 @@ namespace UI.Forms
             {
                 foreach (var tmp in sources)
                 {
-                    // TODO: 계약시에 정확히 DTO 생성 필요
+                    // TODO: 계약시에 정확히 DTO 생성 필요, 또한 클로저 테이블을 활용하므로 트랜잭션 처리가 필요하다.
                     var requestDto = new RegisterRequestDTO
                     {
                         
@@ -99,6 +99,7 @@ namespace UI.Forms
 
                 if (validator.IsValid(e.FormattedValue)) 
                 {
+                    cell.ErrorText = string.Empty;
                     return;
                 };
 
@@ -113,10 +114,13 @@ namespace UI.Forms
             {
                 case nameof(RegisterSheet.ProjectNo):
                     return new ProjectNoValidator();
+
                 case nameof(RegisterSheet.MillSheetNo):
                     return new MillSheetNoValidator();
+
                 case nameof(RegisterSheet.IssuedDate):
                     return new IssuedDateValidator();
+
                 default:
                     return new DefaultValidator();
             }

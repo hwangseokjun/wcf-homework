@@ -1,5 +1,6 @@
 ﻿using COM.DataAccess;
 using COM.Dtos;
+using COM.Models;
 using IF;
 using SVC.Exceptions;
 using System;
@@ -11,7 +12,6 @@ using System.Text;
 
 namespace SVC
 {
-    // 참고: "리팩터링" 메뉴에서 "이름 바꾸기" 명령을 사용하여 코드 및 config 파일에서 클래스 이름 "MillCertificateSheetService"을 변경할 수 있습니다.
     [GlobalErrorHandlerBehavior(typeof(GlobalErrorHandler))]
     public class MillCertificateSheetService : IMillCertificateSheetService
     {
@@ -27,8 +27,22 @@ namespace SVC
             _millCertificateSheetRepository = millCertificateSheetRepository;
         }
 
-        public string Add(List<RegisterRequestDTO> registerRequestDtos)
+        public string Add(RegisterRequestDTO registerRequestDto)
         {
+            var createdAt = DateTime.Today.ToString("yyyy-MM-dd");
+
+            var millCertificateSheet = new MillCertificateSheet
+            {
+                ProjectNo = registerRequestDto.ProjectNo,
+                MillSheetNo = registerRequestDto.MillSheetNo,
+                DocMngNo = registerRequestDto.DocMngNo,
+                IssuedDate = registerRequestDto.IssuedDate.ToString("yyyy-MM-dd"),
+                CreatedAt = createdAt,
+                ModifiedAt = null
+            };
+
+            _millCertificateSheetRepository.Save(millCertificateSheet);
+
             return "";
         }
 

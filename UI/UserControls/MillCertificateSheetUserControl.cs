@@ -18,24 +18,24 @@ namespace UI.UserControls
         {
             InitializeComponent();
 
-            using (var client = new MillCertificateSheetServiceClient())
-            {
-                MillSheetResponseDTO[] responseDtos = client.GetAll();
-                
-                foreach (var responseDto in responseDtos) 
-                {
-                    bsMillCertificateSheet.Add(new MillCertificateSheet 
-                    { 
-                        Id = responseDto.Id,
-                        ProjectNo = responseDto.ProjectNo,
-                        MillSheetNo = responseDto.MillSheetNo,
-                        IssuedDate = responseDto.IssuedDate,
-                        CreatedAt = responseDto.CreateAt,
-                        ModifiedAt = responseDto.ModifiedAt,
-                        DocMngNo = responseDto.DocMngNo
-                    });
-                }
-            }
+            //using (var client = new MillCertificateSheetServiceClient())
+            //{
+            //    MillSheetResponseDTO[] responseDtos = client.GetAll();
+
+            //    foreach (var responseDto in responseDtos)
+            //    {
+            //        bsMillCertificateSheet.Add(new MillCertificateSheet
+            //        {
+            //            Id = responseDto.Id,
+            //            ProjectNo = responseDto.ProjectNo,
+            //            MillSheetNo = responseDto.MillSheetNo,
+            //            IssuedDate = responseDto.IssuedDate,
+            //            CreatedAt = responseDto.CreateAt,
+            //            ModifiedAt = responseDto.ModifiedAt,
+            //            DocMngNo = responseDto.DocMngNo
+            //        });
+            //    }
+            //}
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

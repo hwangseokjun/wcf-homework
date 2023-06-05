@@ -12,7 +12,7 @@ namespace IF
     public interface IMillCertificateSheetService
     {
         [OperationContract]
-        string Add(List<RegisterRequestDTO> registerRequestDtos);
+        string Add(RegisterRequestDTO registerRequestDto);
         [OperationContract]
         string Modify(ModifyRequestDTO modifyRequestDto);
         [OperationContract]

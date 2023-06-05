@@ -18,9 +18,34 @@ namespace COM.DataAccess
     {
         public void Save(MillCertificateSheet millCertificateSheet) 
         {
+            // TODO: 트랜잭션 처리 추가 필요
             using (IDbConnection cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
+            using (var transaction = cnn.BeginTransaction())
             {
-                //cnn.Execute("INSERT INTO mill_cert_sheets (val1, val2, ...) VALUES ", millCertificateSheet);
+                try
+                {
+                    var query = @"INSERT INTO MillCertificateSheet (
+                                    ProjectNo, 
+                                    MillSheetNo, 
+                                    DocMngNo, 
+                                    IssuedDate, 
+                                    CreatedAt
+                                ) 
+                                VALUES (
+                                    @ProjectNo, 
+                                    @MillSheetNo, 
+                                    @DocMngNo, 
+                                    @IssuedDate, 
+                                    @CreatedAt
+                                )";
+                    cnn.Execute(query, millCertificateSheet);
+                    transaction.Commit();
+                }
+                catch 
+                {
+                    transaction.Rollback();
+                    throw new SQLiteException("failed to transaction");
+                }
             }
         }
 

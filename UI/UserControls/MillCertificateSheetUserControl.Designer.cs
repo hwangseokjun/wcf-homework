@@ -34,19 +34,19 @@ namespace UI.UserControls
             this.btnPrevious = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvMillCertificateSheet = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.txtPage = new System.Windows.Forms.TextBox();
-            this.bsMillCertificateSheet = new System.Windows.Forms.BindingSource(this.components);
             this.projectNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.millSheetNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issuedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issuedDateDataGridViewTextBoxColumn = new UI.Controls.CalendarColumn();
+            this.createdAtDataGridViewTextBoxColumn = new UI.Controls.CalendarColumn();
             this.docMngNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsMillCertificateSheet = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillCertificateSheet)).BeginInit();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).BeginInit();
@@ -54,7 +54,7 @@ namespace UI.UserControls
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(143, 252);
+            this.btnNext.Location = new System.Drawing.Point(309, 279);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(23, 23);
             this.btnNext.TabIndex = 8;
@@ -64,7 +64,7 @@ namespace UI.UserControls
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(3, 252);
+            this.btnPrevious.Location = new System.Drawing.Point(169, 279);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(23, 23);
             this.btnPrevious.TabIndex = 7;
@@ -75,32 +75,22 @@ namespace UI.UserControls
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(143, 3);
+            this.comboBox1.Location = new System.Drawing.Point(198, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(92, 20);
+            this.comboBox1.Size = new System.Drawing.Size(105, 20);
             this.comboBox1.TabIndex = 6;
             // 
             // textBox1
             // 
             this.tableLayoutPanel.SetColumnSpan(this.textBox1, 2);
-            this.textBox1.Location = new System.Drawing.Point(241, 3);
+            this.textBox1.Location = new System.Drawing.Point(309, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 21);
+            this.textBox1.Size = new System.Drawing.Size(148, 21);
             this.textBox1.TabIndex = 5;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(375, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 21);
-            this.btnSearch.TabIndex = 0;
-            this.btnSearch.Text = "조회";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(289, 283);
+            this.btnUpdate.Location = new System.Drawing.Point(378, 279);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 22);
             this.btnUpdate.TabIndex = 2;
@@ -108,20 +98,9 @@ namespace UI.UserControls
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(375, 283);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 22);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "삭제";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnRefresh
             // 
-            this.tableLayoutPanel.SetColumnSpan(this.btnRefresh, 2);
-            this.btnRefresh.Location = new System.Drawing.Point(3, 283);
+            this.btnRefresh.Location = new System.Drawing.Point(3, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 22);
             this.btnRefresh.TabIndex = 1;
@@ -144,53 +123,68 @@ namespace UI.UserControls
             this.tableLayoutPanel.SetColumnSpan(this.dgvMillCertificateSheet, 6);
             this.dgvMillCertificateSheet.DataSource = this.bsMillCertificateSheet;
             this.dgvMillCertificateSheet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMillCertificateSheet.Location = new System.Drawing.Point(3, 34);
+            this.dgvMillCertificateSheet.Location = new System.Drawing.Point(3, 37);
             this.dgvMillCertificateSheet.Name = "dgvMillCertificateSheet";
             this.dgvMillCertificateSheet.RowTemplate.Height = 23;
-            this.dgvMillCertificateSheet.Size = new System.Drawing.Size(472, 212);
+            this.dgvMillCertificateSheet.Size = new System.Drawing.Size(536, 236);
             this.dgvMillCertificateSheet.TabIndex = 4;
             // 
             // tableLayoutPanel
             // 
             this.tableLayoutPanel.ColumnCount = 6;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel.Controls.Add(this.dgvMillCertificateSheet, 0, 1);
-            this.tableLayoutPanel.Controls.Add(this.btnRefresh, 0, 3);
-            this.tableLayoutPanel.Controls.Add(this.btnDelete, 5, 3);
-            this.tableLayoutPanel.Controls.Add(this.btnUpdate, 4, 3);
             this.tableLayoutPanel.Controls.Add(this.btnSearch, 5, 0);
             this.tableLayoutPanel.Controls.Add(this.textBox1, 3, 0);
             this.tableLayoutPanel.Controls.Add(this.comboBox1, 2, 0);
-            this.tableLayoutPanel.Controls.Add(this.btnPrevious, 0, 2);
-            this.tableLayoutPanel.Controls.Add(this.btnNext, 2, 2);
-            this.tableLayoutPanel.Controls.Add(this.txtPage, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.btnUpdate, 4, 2);
+            this.tableLayoutPanel.Controls.Add(this.btnDelete, 5, 2);
+            this.tableLayoutPanel.Controls.Add(this.btnNext, 3, 2);
+            this.tableLayoutPanel.Controls.Add(this.txtPage, 2, 2);
+            this.tableLayoutPanel.Controls.Add(this.btnPrevious, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.btnRefresh, 0, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 4;
+            this.tableLayoutPanel.RowCount = 3;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(452, 312);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(542, 312);
             this.tableLayoutPanel.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(463, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 21);
+            this.btnSearch.TabIndex = 0;
+            this.btnSearch.Text = "조회";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(463, 279);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 22);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtPage
             // 
             this.txtPage.Enabled = false;
-            this.txtPage.Location = new System.Drawing.Point(32, 252);
+            this.txtPage.Location = new System.Drawing.Point(198, 279);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(105, 21);
             this.txtPage.TabIndex = 9;
-            // 
-            // bsMillCertificateSheet
-            // 
-            this.bsMillCertificateSheet.DataSource = typeof(UI.Models.MillCertificateSheet);
             // 
             // projectNoDataGridViewTextBoxColumn
             // 
@@ -209,12 +203,16 @@ namespace UI.UserControls
             this.issuedDateDataGridViewTextBoxColumn.DataPropertyName = "IssuedDate";
             this.issuedDateDataGridViewTextBoxColumn.HeaderText = "발행일";
             this.issuedDateDataGridViewTextBoxColumn.Name = "issuedDateDataGridViewTextBoxColumn";
+            this.issuedDateDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.issuedDateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // createdAtDataGridViewTextBoxColumn
             // 
             this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
             this.createdAtDataGridViewTextBoxColumn.HeaderText = "최초작성일";
             this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
+            this.createdAtDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.createdAtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // docMngNoDataGridViewTextBoxColumn
             // 
@@ -222,13 +220,17 @@ namespace UI.UserControls
             this.docMngNoDataGridViewTextBoxColumn.HeaderText = "문서관리번호";
             this.docMngNoDataGridViewTextBoxColumn.Name = "docMngNoDataGridViewTextBoxColumn";
             // 
+            // bsMillCertificateSheet
+            // 
+            this.bsMillCertificateSheet.DataSource = typeof(UI.Models.MillCertificateSheet);
+            // 
             // MillCertificateSheetUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "MillCertificateSheetUserControl";
-            this.Size = new System.Drawing.Size(452, 312);
+            this.Size = new System.Drawing.Size(542, 312);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillCertificateSheet)).EndInit();
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
@@ -245,15 +247,15 @@ namespace UI.UserControls
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.DataGridView dgvMillCertificateSheet;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.BindingSource bsMillCertificateSheet;
         private System.Windows.Forms.DataGridViewTextBoxColumn projectNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn millSheetNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issuedDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
+        private Controls.CalendarColumn issuedDateDataGridViewTextBoxColumn;
+        private Controls.CalendarColumn createdAtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn docMngNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bsMillCertificateSheet;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

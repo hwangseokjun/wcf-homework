@@ -22,6 +22,21 @@ namespace UI.ServiceReference1 {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreatedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocMngNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime IssuedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MillSheetNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectNoField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -29,6 +44,71 @@ namespace UI.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreatedAt {
+            get {
+                return this.CreatedAtField;
+            }
+            set {
+                if ((this.CreatedAtField.Equals(value) != true)) {
+                    this.CreatedAtField = value;
+                    this.RaisePropertyChanged("CreatedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DocMngNo {
+            get {
+                return this.DocMngNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocMngNoField, value) != true)) {
+                    this.DocMngNoField = value;
+                    this.RaisePropertyChanged("DocMngNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime IssuedDate {
+            get {
+                return this.IssuedDateField;
+            }
+            set {
+                if ((this.IssuedDateField.Equals(value) != true)) {
+                    this.IssuedDateField = value;
+                    this.RaisePropertyChanged("IssuedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MillSheetNo {
+            get {
+                return this.MillSheetNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MillSheetNoField, value) != true)) {
+                    this.MillSheetNoField = value;
+                    this.RaisePropertyChanged("MillSheetNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProjectNo {
+            get {
+                return this.ProjectNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectNoField, value) != true)) {
+                    this.ProjectNoField = value;
+                    this.RaisePropertyChanged("ProjectNo");
+                }
             }
         }
         
@@ -52,7 +132,22 @@ namespace UI.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocMngNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime IssuedDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MillSheetNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ModifiedAtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectNoField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -65,6 +160,19 @@ namespace UI.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DocMngNo {
+            get {
+                return this.DocMngNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocMngNoField, value) != true)) {
+                    this.DocMngNoField = value;
+                    this.RaisePropertyChanged("DocMngNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -73,6 +181,58 @@ namespace UI.ServiceReference1 {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime IssuedDate {
+            get {
+                return this.IssuedDateField;
+            }
+            set {
+                if ((this.IssuedDateField.Equals(value) != true)) {
+                    this.IssuedDateField = value;
+                    this.RaisePropertyChanged("IssuedDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MillSheetNo {
+            get {
+                return this.MillSheetNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MillSheetNoField, value) != true)) {
+                    this.MillSheetNoField = value;
+                    this.RaisePropertyChanged("MillSheetNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ModifiedAt {
+            get {
+                return this.ModifiedAtField;
+            }
+            set {
+                if ((this.ModifiedAtField.Equals(value) != true)) {
+                    this.ModifiedAtField = value;
+                    this.RaisePropertyChanged("ModifiedAt");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProjectNo {
+            get {
+                return this.ProjectNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectNoField, value) != true)) {
+                    this.ProjectNoField = value;
+                    this.RaisePropertyChanged("ProjectNo");
                 }
             }
         }

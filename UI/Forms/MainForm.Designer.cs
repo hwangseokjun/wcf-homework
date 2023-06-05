@@ -45,7 +45,7 @@ namespace UI.Forms
             this._btnClose});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(710, 24);
+            this.menuStrip.Size = new System.Drawing.Size(798, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -65,31 +65,30 @@ namespace UI.Forms
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(485, 33);
+            this.monthCalendar.Location = new System.Drawing.Point(560, 33);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 2;
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             // 
             // treeUserControl
             // 
-            this.treeUserControl.Location = new System.Drawing.Point(485, 207);
+            this.treeUserControl.Location = new System.Drawing.Point(560, 207);
             this.treeUserControl.Name = "treeUserControl";
             this.treeUserControl.Size = new System.Drawing.Size(220, 207);
             this.treeUserControl.TabIndex = 3;
-            this.treeUserControl.TreePath = null;
             // 
             // millCertificateSheetUserControl
             // 
             this.millCertificateSheetUserControl.Location = new System.Drawing.Point(12, 33);
             this.millCertificateSheetUserControl.Name = "millCertificateSheetUserControl";
-            this.millCertificateSheetUserControl.Size = new System.Drawing.Size(467, 381);
+            this.millCertificateSheetUserControl.Size = new System.Drawing.Size(542, 375);
             this.millCertificateSheetUserControl.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 420);
+            this.ClientSize = new System.Drawing.Size(798, 420);
             this.Controls.Add(this.treeUserControl);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.millCertificateSheetUserControl);

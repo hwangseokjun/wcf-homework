@@ -10,7 +10,15 @@ namespace UI.Utils
     {
         public bool IsValid(object value)
         {
-            return false;
+            var selectedDate = DateTime.Parse((string)value);
+            var currentDate = DateTime.Today;
+
+            if (1 <= DateTime.Compare(selectedDate, currentDate)) 
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

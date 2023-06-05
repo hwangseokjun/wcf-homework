@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace COM.DataAccess
+namespace UI.Controls
 {
-    public interface ITreePathRepository
+    public class DummyTreeNode : TreeNode
     {
-        void Save();
 
     }
 }

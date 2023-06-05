@@ -8,5 +8,9 @@ namespace COM.Dtos
 {
     public class RegisterRequestDTO
     {
+        public string ProjectNo { get; set; }
+        public string MillSheetNo { get; set; }
+        public string DocMngNo { get; set; }
+        public DateTime IssuedDate { get; set; }
     }
 }

@@ -7,12 +7,23 @@
   </xs:complexType>
   <xs:element name="ArrayOfRegisterRequestDTO" nillable="true" type="tns:ArrayOfRegisterRequestDTO" />
   <xs:complexType name="RegisterRequestDTO">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocMngNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MillSheetNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectNo" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="RegisterRequestDTO" nillable="true" type="tns:RegisterRequestDTO" />
   <xs:complexType name="ModifyRequestDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="DocMngNo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MillSheetNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectNo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ModifyRequestDTO" nillable="true" type="tns:ModifyRequestDTO" />
