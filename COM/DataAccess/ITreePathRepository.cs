@@ -8,5 +8,6 @@ namespace COM.DataAccess
 {
     public interface ITreePathRepository
     {
+
     }
 }

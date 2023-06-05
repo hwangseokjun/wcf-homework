@@ -30,7 +30,6 @@ namespace UI.UserControls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bsMillCertificateSheet = new System.Windows.Forms.BindingSource(this.components);
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -40,20 +39,18 @@ namespace UI.UserControls
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvMillCertificateSheet = new System.Windows.Forms.DataGridView();
-            this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issuedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.millSheetNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.txtPage = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).BeginInit();
+            this.bsMillCertificateSheet = new System.Windows.Forms.BindingSource(this.components);
+            this.projectNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.millSheetNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issuedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docMngNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillCertificateSheet)).BeginInit();
             this.tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bsMillCertificateSheet
-            // 
-            this.bsMillCertificateSheet.DataSource = typeof(UI.Models.MillCertificateSheet);
             // 
             // btnNext
             // 
@@ -142,7 +139,8 @@ namespace UI.UserControls
             this.projectNoDataGridViewTextBoxColumn,
             this.millSheetNoDataGridViewTextBoxColumn,
             this.issuedDateDataGridViewTextBoxColumn,
-            this.createdAtDataGridViewTextBoxColumn});
+            this.createdAtDataGridViewTextBoxColumn,
+            this.docMngNoDataGridViewTextBoxColumn});
             this.tableLayoutPanel.SetColumnSpan(this.dgvMillCertificateSheet, 6);
             this.dgvMillCertificateSheet.DataSource = this.bsMillCertificateSheet;
             this.dgvMillCertificateSheet.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,30 +149,6 @@ namespace UI.UserControls
             this.dgvMillCertificateSheet.RowTemplate.Height = 23;
             this.dgvMillCertificateSheet.Size = new System.Drawing.Size(472, 212);
             this.dgvMillCertificateSheet.TabIndex = 4;
-            // 
-            // createdAtDataGridViewTextBoxColumn
-            // 
-            this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
-            this.createdAtDataGridViewTextBoxColumn.HeaderText = "최초작성일";
-            this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
-            // 
-            // issuedDateDataGridViewTextBoxColumn
-            // 
-            this.issuedDateDataGridViewTextBoxColumn.DataPropertyName = "IssuedDate";
-            this.issuedDateDataGridViewTextBoxColumn.HeaderText = "발행일";
-            this.issuedDateDataGridViewTextBoxColumn.Name = "issuedDateDataGridViewTextBoxColumn";
-            // 
-            // millSheetNoDataGridViewTextBoxColumn
-            // 
-            this.millSheetNoDataGridViewTextBoxColumn.DataPropertyName = "MillSheetNo";
-            this.millSheetNoDataGridViewTextBoxColumn.HeaderText = "강재번호";
-            this.millSheetNoDataGridViewTextBoxColumn.Name = "millSheetNoDataGridViewTextBoxColumn";
-            // 
-            // projectNoDataGridViewTextBoxColumn
-            // 
-            this.projectNoDataGridViewTextBoxColumn.DataPropertyName = "ProjectNo";
-            this.projectNoDataGridViewTextBoxColumn.HeaderText = "프로젝트번호";
-            this.projectNoDataGridViewTextBoxColumn.Name = "projectNoDataGridViewTextBoxColumn";
             // 
             // tableLayoutPanel
             // 
@@ -208,10 +182,45 @@ namespace UI.UserControls
             // 
             // txtPage
             // 
+            this.txtPage.Enabled = false;
             this.txtPage.Location = new System.Drawing.Point(32, 252);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(105, 21);
             this.txtPage.TabIndex = 9;
+            // 
+            // bsMillCertificateSheet
+            // 
+            this.bsMillCertificateSheet.DataSource = typeof(UI.Models.MillCertificateSheet);
+            // 
+            // projectNoDataGridViewTextBoxColumn
+            // 
+            this.projectNoDataGridViewTextBoxColumn.DataPropertyName = "ProjectNo";
+            this.projectNoDataGridViewTextBoxColumn.HeaderText = "프로젝트번호";
+            this.projectNoDataGridViewTextBoxColumn.Name = "projectNoDataGridViewTextBoxColumn";
+            // 
+            // millSheetNoDataGridViewTextBoxColumn
+            // 
+            this.millSheetNoDataGridViewTextBoxColumn.DataPropertyName = "MillSheetNo";
+            this.millSheetNoDataGridViewTextBoxColumn.HeaderText = "강재번호";
+            this.millSheetNoDataGridViewTextBoxColumn.Name = "millSheetNoDataGridViewTextBoxColumn";
+            // 
+            // issuedDateDataGridViewTextBoxColumn
+            // 
+            this.issuedDateDataGridViewTextBoxColumn.DataPropertyName = "IssuedDate";
+            this.issuedDateDataGridViewTextBoxColumn.HeaderText = "발행일";
+            this.issuedDateDataGridViewTextBoxColumn.Name = "issuedDateDataGridViewTextBoxColumn";
+            // 
+            // createdAtDataGridViewTextBoxColumn
+            // 
+            this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
+            this.createdAtDataGridViewTextBoxColumn.HeaderText = "최초작성일";
+            this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
+            // 
+            // docMngNoDataGridViewTextBoxColumn
+            // 
+            this.docMngNoDataGridViewTextBoxColumn.DataPropertyName = "DocMngNo";
+            this.docMngNoDataGridViewTextBoxColumn.HeaderText = "문서관리번호";
+            this.docMngNoDataGridViewTextBoxColumn.Name = "docMngNoDataGridViewTextBoxColumn";
             // 
             // MillCertificateSheetUserControl
             // 
@@ -220,30 +229,31 @@ namespace UI.UserControls
             this.Controls.Add(this.tableLayoutPanel);
             this.Name = "MillCertificateSheetUserControl";
             this.Size = new System.Drawing.Size(452, 312);
-            ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillCertificateSheet)).EndInit();
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource bsMillCertificateSheet;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.DataGridView dgvMillCertificateSheet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn projectNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn millSheetNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn issuedDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn projectNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn millSheetNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issuedDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdAtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docMngNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsMillCertificateSheet;
     }
 }

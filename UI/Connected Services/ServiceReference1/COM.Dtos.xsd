@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/COM.Dtos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/COM.Dtos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfRegisterRequestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegisterRequestDTO" nillable="true" type="tns:RegisterRequestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegisterRequestDTO" nillable="true" type="tns:ArrayOfRegisterRequestDTO" />
+  <xs:complexType name="RegisterRequestDTO">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RegisterRequestDTO" nillable="true" type="tns:RegisterRequestDTO" />
+  <xs:complexType name="ModifyRequestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModifyRequestDTO" nillable="true" type="tns:ModifyRequestDTO" />
+  <xs:complexType name="ArrayOfMillSheetResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MillSheetResponseDTO" nillable="true" type="tns:MillSheetResponseDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMillSheetResponseDTO" nillable="true" type="tns:ArrayOfMillSheetResponseDTO" />
+  <xs:complexType name="MillSheetResponseDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocMngNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IssuedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MillSheetNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModifiedAt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProjectNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MillSheetResponseDTO" nillable="true" type="tns:MillSheetResponseDTO" />
+</xs:schema>

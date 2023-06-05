@@ -1,4 +1,5 @@
 ﻿using COM.DataAccess;
+using COM.Dtos;
 using IF;
 using SVC.Exceptions;
 using System;
@@ -26,14 +27,14 @@ namespace SVC
             _millCertificateSheetRepository = millCertificateSheetRepository;
         }
 
-        public string Add()
+        public string Add(List<RegisterRequestDTO> registerRequestDtos)
         {
-            throw new NotImplementedException();
+            return "";
         }
 
-        public string GetAll()
+        public List<MillSheetResponseDTO> GetAll()
         {
-            throw new NotImplementedException();
+            return _millCertificateSheetRepository.FindAll();
         }
 
         public void GetBy(string category, string query)
@@ -41,14 +42,19 @@ namespace SVC
             throw new NotImplementedException();
         }
 
-        public string Remove()
+        public string Remove(int id)
         {
             throw new NotImplementedException();
         }
 
-        public string Modify()
+        public string Modify(ModifyRequestDTO modifyRequestDto)
         {
             throw new NotImplementedException();
+        }
+
+        public List<MillSheetResponseDTO> GetByCreatedAt()
+        {
+            return new List<MillSheetResponseDTO>();
         }
     }
 }

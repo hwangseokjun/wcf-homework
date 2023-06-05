@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COM.Dtos
 {
-    public class RegisterRequestDto
+    public class RegisterRequestDTO
     {
     }
 }

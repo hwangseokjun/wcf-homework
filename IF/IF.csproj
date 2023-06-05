@@ -42,11 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMillCertificateSheetRepository.cs" />
     <Compile Include="IMillCertificateSheetService.cs" />
-    <Compile Include="ITreePathRepository.cs" />
     <Compile Include="ITreePathService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COM\COM.csproj">
+      <Project>{DDB563C3-6DBA-4D83-9608-7C2BDE10E6E8}</Project>
+      <Name>COM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

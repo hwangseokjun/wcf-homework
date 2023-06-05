@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,22 +16,6 @@ namespace UI.Forms
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.R) 
-            {
-                using (var register = new RegisterForm())
-                {
-                    register.ShowDialog();
-                }
-            }
-
-            if (e.Control && e.KeyCode == Keys.X) 
-            {
-                Close();
-            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -50,5 +35,22 @@ namespace UI.Forms
         {
 
         }
+
+        private void MainForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.R)
+            {
+                using (var register = new RegisterForm())
+                {
+                    register.ShowDialog();
+                }
+            }
+
+            if (e.Control && e.KeyCode == Keys.X)
+            {
+                Close();
+            }
+        }
+
     }
 }

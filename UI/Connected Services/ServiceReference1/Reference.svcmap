@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="72f34746-7d09-47a6-a90d-5458b5fb6044" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="42b30200-575e-4cf3-8828-5a1aa3f7cddd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4cb0bc85-9eb1-4782-bcf5-bec99914a475" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="5dbaa5d9-cb63-49fa-87c8-f4a9643110ea" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+    <MetadataFile FileName="COM.Dtos.xsd" MetadataType="Schema" ID="c01d17e8-20c2-4c34-93e3-e46bc2d375c9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

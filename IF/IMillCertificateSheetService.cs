@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COM.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -11,14 +12,16 @@ namespace IF
     public interface IMillCertificateSheetService
     {
         [OperationContract]
-        string Add();
+        string Add(List<RegisterRequestDTO> registerRequestDtos);
         [OperationContract]
-        string Modify();
+        string Modify(ModifyRequestDTO modifyRequestDto);
         [OperationContract]
-        string Remove();
+        string Remove(int id);
         [OperationContract]
-        string GetAll();
+        List<MillSheetResponseDTO> GetAll();
         [OperationContract]
         void GetBy(string category, string query);
+        [OperationContract]
+        List<MillSheetResponseDTO> GetByCreatedAt();
     }
 }

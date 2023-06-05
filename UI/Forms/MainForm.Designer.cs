@@ -29,25 +29,25 @@ namespace UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this._btnRegister = new System.Windows.Forms.ToolStripMenuItem();
             this._btnClose = new System.Windows.Forms.ToolStripMenuItem();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.treeUserControl = new UI.UserControls.TreeUserControl();
             this.millCertificateSheetUserControl = new UI.UserControls.MillCertificateSheetUserControl();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._btnRegister,
             this._btnClose});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(710, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(710, 24);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // _btnRegister
             // 
@@ -76,6 +76,7 @@ namespace UI.Forms
             this.treeUserControl.Name = "treeUserControl";
             this.treeUserControl.Size = new System.Drawing.Size(220, 207);
             this.treeUserControl.TabIndex = 3;
+            this.treeUserControl.TreePath = null;
             // 
             // millCertificateSheetUserControl
             // 
@@ -92,13 +93,14 @@ namespace UI.Forms
             this.Controls.Add(this.treeUserControl);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.millCertificateSheetUserControl);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,7 +108,7 @@ namespace UI.Forms
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem _btnRegister;
         private System.Windows.Forms.ToolStripMenuItem _btnClose;
         private UserControls.MillCertificateSheetUserControl millCertificateSheetUserControl;

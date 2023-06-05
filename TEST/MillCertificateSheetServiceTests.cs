@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 
 namespace TEST
@@ -7,17 +8,17 @@ namespace TEST
     public class MillCertificateSheetServiceTests
     {
         [TestMethod]
-        public void AddTest_when_valid()
+        public void AddTest_succeed_when()
         {
             // Arrange
-            
+
             // Act
 
             // Assert
         }
 
         [TestMethod]
-        public void AddTest_when_invalid()
+        public void AddTest_failed_when()
         {
             // Arrange
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +11,9 @@ namespace COM.Models
         public int Id { get; set; }
         public string ProjectNo { get; set; }
         public string MillSheetNo { get; set; }
-        public DateTime IssuedDate { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime ModifiedAt { get; set; }
+        public string DocMngNo { get; set; }
+        public string IssuedDate { get; set; }
+        public string CreatedAt { get; set; }
+        public string ModifiedAt { get; set; }
     }
 }

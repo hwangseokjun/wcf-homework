@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace COM.Dtos
 {
-    public class MillCertificateSheetResponseDto
+    public class ModifyRequestDTO
     {
         public int Id { get; set; }
-        public string MillSheetNo { get; set; }
-        public string Message { get; set; }
+
     }
 }

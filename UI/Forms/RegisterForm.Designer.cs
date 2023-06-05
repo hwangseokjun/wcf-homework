@@ -32,17 +32,18 @@ namespace UI.Forms
             this.components = new System.ComponentModel.Container();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.dgvRegister = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.projectNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.millSheetNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.issuedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsRegisterSheet = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.DocMngNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegister)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsRegisterSheet)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCurrentDate
@@ -65,7 +66,8 @@ namespace UI.Forms
             this.dgvRegister.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.projectNoDataGridViewTextBoxColumn,
             this.millSheetNoDataGridViewTextBoxColumn,
-            this.issuedDateDataGridViewTextBoxColumn});
+            this.issuedDateDataGridViewTextBoxColumn,
+            this.DocMngNo});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvRegister, 5);
             this.dgvRegister.DataSource = this.bsRegisterSheet;
             this.dgvRegister.Location = new System.Drawing.Point(3, 27);
@@ -74,6 +76,28 @@ namespace UI.Forms
             this.dgvRegister.Size = new System.Drawing.Size(378, 222);
             this.dgvRegister.TabIndex = 1;
             this.dgvRegister.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvRegister_CellValidating);
+            // 
+            // projectNoDataGridViewTextBoxColumn
+            // 
+            this.projectNoDataGridViewTextBoxColumn.DataPropertyName = "ProjectNo";
+            this.projectNoDataGridViewTextBoxColumn.HeaderText = "프로젝트번호";
+            this.projectNoDataGridViewTextBoxColumn.Name = "projectNoDataGridViewTextBoxColumn";
+            // 
+            // millSheetNoDataGridViewTextBoxColumn
+            // 
+            this.millSheetNoDataGridViewTextBoxColumn.DataPropertyName = "MillSheetNo";
+            this.millSheetNoDataGridViewTextBoxColumn.HeaderText = "강재번호";
+            this.millSheetNoDataGridViewTextBoxColumn.Name = "millSheetNoDataGridViewTextBoxColumn";
+            // 
+            // issuedDateDataGridViewTextBoxColumn
+            // 
+            this.issuedDateDataGridViewTextBoxColumn.DataPropertyName = "IssuedDate";
+            this.issuedDateDataGridViewTextBoxColumn.HeaderText = "발행일";
+            this.issuedDateDataGridViewTextBoxColumn.Name = "issuedDateDataGridViewTextBoxColumn";
+            // 
+            // bsRegisterSheet
+            // 
+            this.bsRegisterSheet.DataSource = typeof(UI.Models.RegisterSheet);
             // 
             // btnAdd
             // 
@@ -128,27 +152,11 @@ namespace UI.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(387, 290);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
-            // projectNoDataGridViewTextBoxColumn
+            // DocMngNo
             // 
-            this.projectNoDataGridViewTextBoxColumn.DataPropertyName = "ProjectNo";
-            this.projectNoDataGridViewTextBoxColumn.HeaderText = "프로젝트번호";
-            this.projectNoDataGridViewTextBoxColumn.Name = "projectNoDataGridViewTextBoxColumn";
-            // 
-            // millSheetNoDataGridViewTextBoxColumn
-            // 
-            this.millSheetNoDataGridViewTextBoxColumn.DataPropertyName = "MillSheetNo";
-            this.millSheetNoDataGridViewTextBoxColumn.HeaderText = "강재번호";
-            this.millSheetNoDataGridViewTextBoxColumn.Name = "millSheetNoDataGridViewTextBoxColumn";
-            // 
-            // issuedDateDataGridViewTextBoxColumn
-            // 
-            this.issuedDateDataGridViewTextBoxColumn.DataPropertyName = "IssuedDate";
-            this.issuedDateDataGridViewTextBoxColumn.HeaderText = "발행일";
-            this.issuedDateDataGridViewTextBoxColumn.Name = "issuedDateDataGridViewTextBoxColumn";
-            // 
-            // bsRegisterSheet
-            // 
-            this.bsRegisterSheet.DataSource = typeof(UI.Models.RegisterSheet);
+            this.DocMngNo.DataPropertyName = "DocMngNo";
+            this.DocMngNo.HeaderText = "문서관리번호";
+            this.DocMngNo.Name = "DocMngNo";
             // 
             // RegisterForm
             // 
@@ -161,9 +169,9 @@ namespace UI.Forms
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegister)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsRegisterSheet)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsRegisterSheet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -180,5 +188,6 @@ namespace UI.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn millSheetNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn issuedDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bsRegisterSheet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocMngNo;
     }
 }

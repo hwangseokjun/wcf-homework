@@ -9,5 +9,8 @@ namespace COM.Models
 {
     public class TreePath
     {
+        public int Ancestor { get; set; }
+        public int Descendant { get; set; }
+        public int Depth { get; set; }
     }
 }

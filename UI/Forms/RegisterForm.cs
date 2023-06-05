@@ -9,8 +9,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI.Dtos;
 using UI.Models;
+using UI.ServiceReference1;
 using UI.Utils;
 
 namespace UI.Forms
@@ -41,11 +41,13 @@ namespace UI.Forms
         {
             int count = dgvRegister.SelectedRows.Count;
 
+            #region 예외처리
             if (count <= 0)
             {
                 MessageBox.Show("선택된 열이 없습니다.");
                 return;
             }
+            #endregion
 
             for (int i = count - 1; 0 <= i; i--)
             {
@@ -56,24 +58,24 @@ namespace UI.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            #region 예외처리
             if (bsRegisterSheet.Count <= 0) 
             {
                 MessageBox.Show("등록할 데이터가 없습니다.");
                 return;
             }
+            #endregion
 
-            var sources = bsRegisterSheet.List.Cast<RegisterRequestDto>();
+            var sources = bsRegisterSheet.List.Cast<RegisterRequestDTO>();
 
             try
             {
                 foreach (var tmp in sources)
                 {
-                    var requestDto = new RegisterRequestDto
+                    // TODO: 계약시에 정확히 DTO 생성 필요
+                    var requestDto = new RegisterRequestDTO
                     {
-                        ProjectNo = tmp.ProjectNo,
-                        MillSheetNo = tmp.MillSheetNo,
-                        IssuedDate = tmp.IssuedDate,
-                        CreatedAt = DateTime.Today
+                        
                     };
                     // TODO: 개별 요소들 반복문으로 insert
                 }
@@ -84,7 +86,7 @@ namespace UI.Forms
             }
             finally 
             { 
-                
+                // TODO: 완료된 요소들과 실패한 요소들에 대한 처리 필요
             }
         }
 
@@ -100,6 +102,7 @@ namespace UI.Forms
                     return;
                 };
 
+                // TODO: 컬럼의 이름에 따라 유효한 값을 띄워주는 에러메시지 표현하기
                 cell.ErrorText = "유효하지 않은 값입니다.";
             }
         }
