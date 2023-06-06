@@ -18,62 +18,58 @@ namespace COM.DataAccess
     {
         public void Save(MillCertificateSheet millCertificateSheet) 
         {
-            // TODO: 트랜잭션 처리 추가 필요
-            using (IDbConnection cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            using (var transaction = cnn.BeginTransaction())
+            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
             {
-                try
-                {
-                    var query = @"INSERT INTO MillCertificateSheet (
-                                    ProjectNo, 
-                                    MillSheetNo, 
-                                    DocMngNo, 
-                                    IssuedDate, 
-                                    CreatedAt
-                                ) 
-                                VALUES (
-                                    @ProjectNo, 
-                                    @MillSheetNo, 
-                                    @DocMngNo, 
-                                    @IssuedDate, 
-                                    @CreatedAt
-                                )";
-                    cnn.Execute(query, millCertificateSheet);
-                    transaction.Commit();
-                }
-                catch 
-                {
-                    transaction.Rollback();
-                    throw new SQLiteException("failed to transaction");
-                }
+                // TODO: 트랜잭션 처리를 위한 쿼리 추가 작성 필요(상위에서 트랜잭션 처리는 진행됨)
+                
+                var insertQuery = @"INSERT INTO MillCertificateSheet (
+                                        ProjectNo, 
+                                        MillSheetNo, 
+                                        DocMngNo, 
+                                        IssuedDate, 
+                                        CreatedAt
+                                        ) 
+                                    VALUES (
+                                        @ProjectNo, 
+                                        @MillSheetNo, 
+                                        @DocMngNo, 
+                                        @IssuedDate, 
+                                        @CreatedAt
+                                        )";
+                cnn.Execute(insertQuery, millCertificateSheet);
             }
         }
 
         public void DeleteById(int Id) 
         {
-            using (IDbConnection cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
+            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
             {
-                cnn.Execute($"UPDATE MillCertificateSheet AS m SET IsDeleted = 'Y' WHERE m.Id = {Id}");
+                var query = $"UPDATE MillCertificateSheet AS m SET IsDeleted = 'Y' WHERE m.Id = {Id}";
+                cnn.Execute(query);
             }
         }
 
-        public void FindBy(string category, string query) 
+        public List<MillCertificateSheet> FindBy(string category, string search)
         {
-            using (IDbConnection cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
+            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
             {
-                var outputs = cnn.Query<List<MillCertificateSheet>>("SELECT * FROM MillCertificateSheet WHERE {}");
+                var query = "SELECT * FROM MillCertificateSheet AS m WHERE m.IsDeleted = 'N' AND ...";
+                var outputs = cnn.Query<MillCertificateSheet>(query);
+
+                return outputs.ToList();
             }
         }
 
         // TODO: 실제로는 페이징 쿼리가 적용되어야 함
         public List<MillSheetResponseDTO> FindAll() 
         {
-            using (IDbConnection cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
+            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
             {
-                var outputs = cnn.Query<MillCertificateSheet>("SELECT * FROM MillCertificateSheet AS m WHERE m.IsDeleted = 'N'");
+                var query = "SELECT * FROM MillCertificateSheet AS m WHERE m.IsDeleted = 'N'";
+                var outputs = cnn.Query<MillCertificateSheet>(query);
                 var responseDtos = new List<MillSheetResponseDTO>(outputs.Count());
 
-                foreach (var tmp in outputs) 
+                foreach (var tmp in outputs)
                 {
                     var responseDto = new MillSheetResponseDTO
                     {

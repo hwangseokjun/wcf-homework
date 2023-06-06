@@ -11,7 +11,8 @@ namespace COM.DataAccess
     public interface IMillCertificateSheetRepository
     {
         void Save(MillCertificateSheet millCertificateSheet);
-
+        void DeleteById(int Id);
+        List<MillCertificateSheet> FindBy(string category, string search);
         List<MillSheetResponseDTO> FindAll();
     }
 }

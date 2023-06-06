@@ -51,6 +51,5 @@ namespace UI.Forms
                 Close();
             }
         }
-
     }
 }

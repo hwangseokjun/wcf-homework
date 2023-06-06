@@ -9,40 +9,62 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Transactions;
 
 namespace SVC
 {
     [GlobalErrorHandlerBehavior(typeof(GlobalErrorHandler))]
+    [ServiceBehavior(TransactionIsolationLevel = IsolationLevel.Serializable, TransactionTimeout = "00:00:30")]
     public class MillCertificateSheetService : IMillCertificateSheetService
     {
         private readonly IMillCertificateSheetRepository _millCertificateSheetRepository;
+        private readonly ITreePathRepository _treePathRepository;
 
         public MillCertificateSheetService()
         {
             _millCertificateSheetRepository = new MillCertificateSheetRepository();
+            _treePathRepository = new TreePathRepository();
         }
 
-        public MillCertificateSheetService(IMillCertificateSheetRepository millCertificateSheetRepository)
+        public MillCertificateSheetService(IMillCertificateSheetRepository millCertificateSheetRepository, ITreePathRepository treePathRepository)
         {
             _millCertificateSheetRepository = millCertificateSheetRepository;
+            _treePathRepository = treePathRepository;
         }
 
+        [OperationBehavior(TransactionScopeRequired = true)]
         public string Add(RegisterRequestDTO registerRequestDto)
         {
-            var createdAt = DateTime.Today.ToString("yyyy-MM-dd");
-
-            var millCertificateSheet = new MillCertificateSheet
+            using (var scope = new TransactionScope())
             {
-                ProjectNo = registerRequestDto.ProjectNo,
-                MillSheetNo = registerRequestDto.MillSheetNo,
-                DocMngNo = registerRequestDto.DocMngNo,
-                IssuedDate = registerRequestDto.IssuedDate.ToString("yyyy-MM-dd"),
-                CreatedAt = createdAt,
-                ModifiedAt = null
-            };
+                try
+                {
+                    // TODO: 예외처리 필요. 현재일보다 앞서거나 지나치게 멀 경우 등록 불가.
+                    #region 예외처리
+                    #endregion
 
-            _millCertificateSheetRepository.Save(millCertificateSheet);
+                    var createdAt = DateTime.Today.ToString("yyyy-MM-dd");
 
+                    var millCertificateSheet = new MillCertificateSheet
+                    {
+                        ProjectNo = registerRequestDto.ProjectNo,
+                        MillSheetNo = registerRequestDto.MillSheetNo,
+                        DocMngNo = registerRequestDto.DocMngNo,
+                        IssuedDate = registerRequestDto.IssuedDate.ToString("yyyy-MM-dd"),
+                        CreatedAt = createdAt,
+                        ModifiedAt = null
+                    };
+
+                    _millCertificateSheetRepository.Save(millCertificateSheet);
+
+                    scope.Complete();
+                }
+                catch (Exception ex) 
+                {
+                    throw new FaultException($"{ex.Message}");
+                }
+            }
+            
             return "";
         }
 

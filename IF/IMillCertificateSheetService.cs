@@ -12,6 +12,7 @@ namespace IF
     public interface IMillCertificateSheetService
     {
         [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Mandatory)]
         string Add(RegisterRequestDTO registerRequestDto);
         [OperationContract]
         string Modify(ModifyRequestDTO modifyRequestDto);
@@ -20,7 +21,7 @@ namespace IF
         [OperationContract]
         List<MillSheetResponseDTO> GetAll();
         [OperationContract]
-        void GetBy(string category, string query);
+        void GetBy(string category, string search);
         [OperationContract]
         List<MillSheetResponseDTO> GetByCreatedAt();
     }

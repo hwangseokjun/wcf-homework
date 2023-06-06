@@ -50,12 +50,29 @@ namespace UI.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            #region 예외처리
+            if (dgvMillCertificateSheet.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("");
+                return;
+            }
+            #endregion
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            #region 예외처리
+            if (dgvMillCertificateSheet.SelectedRows.Count <= 0) 
+            {
+                MessageBox.Show("");
+                return;
+            }
+            #endregion
 
+            if (MessageBox.Show("선택한 데이터를 삭제하시겠습니까?", "경고", MessageBoxButtons.OKCancel) == DialogResult.OK) 
+            { 
+                
+            }
         }
 
         // TODO: 페이징 쿼리 작성 필요

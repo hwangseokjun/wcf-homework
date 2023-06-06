@@ -1,5 +1,4 @@
-﻿using Dapper;
-
+﻿using COM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ namespace COM.DataAccess
 {
     public class TreePathRepository : ITreePathRepository
     {
-        public void Save()
+        public List<MillCertificateSheet> FindBy(int id)
         {
             throw new NotImplementedException();
         }

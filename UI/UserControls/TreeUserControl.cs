@@ -16,8 +16,6 @@ namespace UI.UserControls
         public TreeUserControl()
         {
             InitializeComponent();
-            // 필요하다면 각 노드에 더미데이터를 집어넣어 준다.
-            // 각 노드에 이벤트를 할당하여 실행시켜야 함.
 
             #region 테스트용으로 노드 집어넣기
             treeView.Nodes.Add(new LazyTreeNode("2021년", 0));
@@ -42,7 +40,9 @@ namespace UI.UserControls
 
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            int id = ((LazyTreeNode)e.Node).Id;
             
+            // TODO: 메인뷰에 데이터를 전달해야 하므로, 이벤트나 프로퍼티 사용 필요
         }
 
         private void treeView_BeforeExpand(object sender, TreeViewCancelEventArgs e)

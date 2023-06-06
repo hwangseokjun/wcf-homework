@@ -40,6 +40,7 @@ namespace UI.Forms
             // 
             // menuStrip
             // 
+            this.menuStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._btnRegister,
             this._btnClose});
@@ -66,7 +67,10 @@ namespace UI.Forms
             // monthCalendar
             // 
             this.monthCalendar.Location = new System.Drawing.Point(560, 33);
+            this.monthCalendar.MaxSelectionCount = 1;
+            this.monthCalendar.MinDate = new System.DateTime(1998, 1, 1, 0, 0, 0, 0);
             this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.ShowToday = false;
             this.monthCalendar.TabIndex = 2;
             this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
             // 
