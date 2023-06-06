@@ -30,8 +30,8 @@ namespace UI.Forms
         private void InitializeComponent()
         {
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this._btnRegister = new System.Windows.Forms.ToolStripMenuItem();
-            this._btnClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRegister = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClose = new System.Windows.Forms.ToolStripMenuItem();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.treeUserControl = new UI.UserControls.TreeUserControl();
             this.millCertificateSheetUserControl = new UI.UserControls.MillCertificateSheetUserControl();
@@ -42,30 +42,33 @@ namespace UI.Forms
             // 
             this.menuStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._btnRegister,
-            this._btnClose});
+            this.btnRegister,
+            this.btnClose});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(798, 24);
+            this.menuStrip.Size = new System.Drawing.Size(794, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // _btnRegister
+            // btnRegister
             // 
-            this._btnRegister.Name = "_btnRegister";
-            this._btnRegister.Size = new System.Drawing.Size(58, 20);
-            this._btnRegister.Text = "등록(R)";
-            this._btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
+            this.btnRegister.Size = new System.Drawing.Size(58, 20);
+            this.btnRegister.Text = "등록(R)";
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // _btnClose
+            // btnClose
             // 
-            this._btnClose.Name = "_btnClose";
-            this._btnClose.Size = new System.Drawing.Size(58, 20);
-            this._btnClose.Text = "종료(X)";
-            this._btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+            this.btnClose.Size = new System.Drawing.Size(58, 20);
+            this.btnClose.Text = "종료(X)";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // monthCalendar
             // 
+            this.monthCalendar.BackColor = System.Drawing.SystemColors.Window;
             this.monthCalendar.Location = new System.Drawing.Point(560, 33);
             this.monthCalendar.MaxSelectionCount = 1;
             this.monthCalendar.MinDate = new System.DateTime(1998, 1, 1, 0, 0, 0, 0);
@@ -92,16 +95,16 @@ namespace UI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 420);
+            this.ClientSize = new System.Drawing.Size(794, 420);
             this.Controls.Add(this.treeUserControl);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.millCertificateSheetUserControl);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainForm_PreviewKeyDown);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -112,8 +115,8 @@ namespace UI.Forms
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem _btnRegister;
-        private System.Windows.Forms.ToolStripMenuItem _btnClose;
+        private System.Windows.Forms.ToolStripMenuItem btnRegister;
+        private System.Windows.Forms.ToolStripMenuItem btnClose;
         private UserControls.MillCertificateSheetUserControl millCertificateSheetUserControl;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private UserControls.TreeUserControl treeUserControl;

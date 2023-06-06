@@ -35,21 +35,5 @@ namespace UI.Forms
         {
 
         }
-
-        private void MainForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.R)
-            {
-                using (var register = new RegisterForm())
-                {
-                    register.ShowDialog();
-                }
-            }
-
-            if (e.Control && e.KeyCode == Keys.X)
-            {
-                Close();
-            }
-        }
     }
 }

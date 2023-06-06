@@ -1,6 +1,5 @@
-﻿using COM.Models;
-using COM.Properties;
-using Dapper;
+﻿using Dapper;
+
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -8,16 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using COM.Models;
+using COM.Properties;
+
 namespace COM.DataAccess
 {
-    public class TreePathRepository : ITreePathRepository
+    public class TimeStampRepository : ITimeStampRepository
     {
-        public int Save(TreePath treePath)
+        public int Save(DateTime today)
         {
-            throw new NotImplementedException();
+            var query = "";
+
+            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
+            {
+                cnn.Open();
+
+                return cnn.Execute(query);
+            }
         }
 
-        public void DeleteBy(int id) 
+        public void DeleteBy(int Id)
         {
             var query = "";
 
@@ -28,15 +37,9 @@ namespace COM.DataAccess
             }
         }
 
-        public List<MillCertificateSheet> FindBy(int id)
+        public bool ExistsBy(DateTime today)
         {
-            var query = "";
-
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            {
-                cnn.Open();
-                return cnn.Query<MillCertificateSheet>(query).ToList();
-            }
+            throw new NotImplementedException();
         }
     }
 }

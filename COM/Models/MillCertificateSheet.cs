@@ -13,7 +13,7 @@ namespace COM.Models
         public string MillSheetNo { get; set; }
         public string DocMngNo { get; set; }
         public string IssuedDate { get; set; }
-        public string CreatedAt { get; set; }
         public string ModifiedAt { get; set; }
+        public int TimeStampId { get; set; } 
     }
 }

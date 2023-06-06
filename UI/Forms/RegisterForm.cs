@@ -8,6 +8,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 using UI.Models;
 using UI.ServiceReference1;
@@ -68,25 +69,31 @@ namespace UI.Forms
 
             var sources = bsRegisterSheet.List.Cast<RegisterRequestDTO>();
 
-            try
+            using (var client = new MillCertificateSheetServiceClient())
+            using (var scope = new TransactionScope()) 
             {
-                foreach (var tmp in sources)
+                try
                 {
-                    // TODO: 계약시에 정확히 DTO 생성 필요, 또한 클로저 테이블을 활용하므로 트랜잭션 처리가 필요하다.
-                    var requestDto = new RegisterRequestDTO
+                    foreach (var tmp in sources)
                     {
-                        
-                    };
-                    // TODO: 개별 요소들 반복문으로 insert
+                        // TODO: 계약시에 정확히 DTO 생성 필요, 또한 클로저 테이블을 활용하므로 트랜잭션 처리가 필요하다.
+                        var requestDto = new RegisterRequestDTO
+                        {
+
+                        };
+                        // TODO: 개별 요소들 반복문으로 insert
+                    }
+
+                    scope.Complete();
                 }
-            }
-            catch (FaultException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally 
-            { 
-                // TODO: 완료된 요소들과 실패한 요소들에 대한 처리 필요
+                catch (FaultException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    // TODO: 완료된 요소들과 실패한 요소들에 대한 처리 필요
+                }
             }
         }
 

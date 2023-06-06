@@ -37,6 +37,7 @@ namespace UI.UserControls
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.dgvMillCertificateSheet = new System.Windows.Forms.DataGridView();
+            this.bsMillCertificateSheet = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -46,10 +47,9 @@ namespace UI.UserControls
             this.issuedDateDataGridViewTextBoxColumn = new UI.Controls.CalendarColumn();
             this.createdAtDataGridViewTextBoxColumn = new UI.Controls.CalendarColumn();
             this.docMngNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsMillCertificateSheet = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillCertificateSheet)).BeginInit();
-            this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).BeginInit();
+            this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNext
@@ -128,6 +128,10 @@ namespace UI.UserControls
             this.dgvMillCertificateSheet.RowTemplate.Height = 23;
             this.dgvMillCertificateSheet.Size = new System.Drawing.Size(536, 236);
             this.dgvMillCertificateSheet.TabIndex = 4;
+            // 
+            // bsMillCertificateSheet
+            // 
+            this.bsMillCertificateSheet.DataSource = typeof(UI.Models.MillCertificateSheet);
             // 
             // tableLayoutPanel
             // 
@@ -211,6 +215,7 @@ namespace UI.UserControls
             this.createdAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt";
             this.createdAtDataGridViewTextBoxColumn.HeaderText = "최초작성일";
             this.createdAtDataGridViewTextBoxColumn.Name = "createdAtDataGridViewTextBoxColumn";
+            this.createdAtDataGridViewTextBoxColumn.ReadOnly = true;
             this.createdAtDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.createdAtDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -220,10 +225,6 @@ namespace UI.UserControls
             this.docMngNoDataGridViewTextBoxColumn.HeaderText = "문서관리번호";
             this.docMngNoDataGridViewTextBoxColumn.Name = "docMngNoDataGridViewTextBoxColumn";
             // 
-            // bsMillCertificateSheet
-            // 
-            this.bsMillCertificateSheet.DataSource = typeof(UI.Models.MillCertificateSheet);
-            // 
             // MillCertificateSheetUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -232,9 +233,9 @@ namespace UI.UserControls
             this.Name = "MillCertificateSheetUserControl";
             this.Size = new System.Drawing.Size(542, 312);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMillCertificateSheet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).EndInit();
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMillCertificateSheet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,12 +251,12 @@ namespace UI.UserControls
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtPage;
         private System.Windows.Forms.BindingSource bsMillCertificateSheet;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn projectNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn millSheetNoDataGridViewTextBoxColumn;
         private Controls.CalendarColumn issuedDateDataGridViewTextBoxColumn;
         private Controls.CalendarColumn createdAtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn docMngNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnDelete;
     }
 }

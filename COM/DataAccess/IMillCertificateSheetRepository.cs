@@ -10,9 +10,10 @@ namespace COM.DataAccess
 {
     public interface IMillCertificateSheetRepository
     {
-        void Save(MillCertificateSheet millCertificateSheet);
-        void DeleteById(int Id);
+        int Save(MillCertificateSheet millCertificateSheet);
+        void DeleteBy(int Id);
+        void Update(MillCertificateSheet millCertificateSheet);
         List<MillCertificateSheet> FindBy(string category, string search);
-        List<MillSheetResponseDTO> FindAll();
+        List<MillCertificateSheet> FindAll();
     }
 }

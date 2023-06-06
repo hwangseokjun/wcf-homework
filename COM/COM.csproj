@@ -51,13 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\IMillCertificateSheetRepository.cs" />
+    <Compile Include="DataAccess\ITimeStampRepository.cs" />
     <Compile Include="DataAccess\ITreePathRepository.cs" />
     <Compile Include="DataAccess\MillCertificateSheetRepository.cs" />
+    <Compile Include="DataAccess\TimeStampRepository.cs" />
     <Compile Include="DataAccess\TreePathRepository.cs" />
     <Compile Include="Dtos\MillSheetResponseDTO.cs" />
     <Compile Include="Dtos\ModifyRequestDTO.cs" />
     <Compile Include="Dtos\RegisterRequestDTO.cs" />
+    <Compile Include="Dtos\TreePathResponseDTO.cs" />
     <Compile Include="Models\MillCertificateSheet.cs" />
+    <Compile Include="Models\TimeStamp.cs" />
     <Compile Include="Models\TreePath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

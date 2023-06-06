@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace COM.DataAccess
 {
-    public interface ITreePathRepository
+    public interface ITimeStampRepository
     {
-        int Save(TreePath treePath);
-        void DeleteBy(int id);
-        List<MillCertificateSheet> FindBy(int id);
+        int Save(DateTime today);
+        void DeleteBy(int Id);
+        bool ExistsBy(DateTime today);
     }
 }

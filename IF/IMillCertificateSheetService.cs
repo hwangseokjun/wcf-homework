@@ -11,18 +11,36 @@ namespace IF
     [ServiceContract]
     public interface IMillCertificateSheetService
     {
+        #region MillCertificatSheet
         [OperationContract]
-        [TransactionFlow(TransactionFlowOption.Mandatory)]
-        string Add(RegisterRequestDTO registerRequestDto);
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        int AddMillCertificateSheet(RegisterRequestDTO registerRequestDto);
         [OperationContract]
-        string Modify(ModifyRequestDTO modifyRequestDto);
+        void UpdateMillCertificateSheet(ModifyRequestDTO modifyRequestDto);
         [OperationContract]
-        string Remove(int id);
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        void RemoveMillCertificateSheet(int id);
         [OperationContract]
-        List<MillSheetResponseDTO> GetAll();
+        List<MillSheetResponseDTO> GetMillCertificateSheets();
         [OperationContract]
-        void GetBy(string category, string search);
+        void GetMillCertificateSheetsBy(string category, string search);
+        #endregion
+
+        #region TimeStamp
         [OperationContract]
-        List<MillSheetResponseDTO> GetByCreatedAt();
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        int AddTimeStamp();
+        [OperationContract]
+        void RemoveTimeStamp(int id);
+        #endregion
+
+        #region TreePath
+        [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        int AddTreePath();
+        [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        void RemoveTreePath(int id);
+        #endregion
     }
 }
