@@ -1,87 +1,65 @@
-﻿using Dapper;
-
+﻿using COM.Models;
+using Dapper;
+using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using COM.Properties;
-using System.Data;
-using System.Data.SQLite;
-using COM.Models;
-using COM.Dtos;
 
 namespace COM.DataAccess
 {
     public class MillCertificateSheetRepository : IMillCertificateSheetRepository
     {
-        public int Save(MillCertificateSheet millCertificateSheet)
+        private readonly SQLiteConnection _connection;
+        private readonly SQLiteTransaction _transaction;
+
+        public MillCertificateSheetRepository(SQLiteConnection connection, SQLiteTransaction transaction)
         {
-            #region 쿼리
-            var query = @"INSERT INTO MillCertificateSheet (
-                                ProjectNo, 
-                                MillSheetNo, 
-                                DocMngNo, 
-                                IssuedDate, 
-                                CreatedAt
-                                ) 
-                            VALUES (
-                                @ProjectNo, 
-                                @MillSheetNo, 
-                                @DocMngNo, 
-                                @IssuedDate, 
-                                @CreatedAt
-                                )";
-            #endregion
-
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING)) 
-            {
-                cnn.Open();
-
-                return cnn.Execute(query, millCertificateSheet);
-            }
+            _connection = connection;
+            _transaction = transaction;
         }
 
-        public void DeleteBy(int Id) 
-        {
-            #region 쿼리
-            var query = $@"UPDATE MillCertificateSheet AS m 
-                                SET IsDeleted = 'Y' 
-                                    WHERE m.Id = {Id}";
-            #endregion
-
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            {
-                cnn.Open();
-                cnn.Execute(query);
-            }
-        }
-
-        // TODO: 실제로는 페이징 쿼리가 적용되어야 함
-        public List<MillCertificateSheet> FindAll() 
-        {
-            #region 쿼리
-            var query = "SELECT * FROM MillCertificateSheet AS m WHERE m.IsDeleted = 'N'";
-            #endregion
-
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            {
-                cnn.Open();
-                var outputs = cnn.Query<MillCertificateSheet>(query);
-
-                return outputs.ToList();
-            }
-        }
-
-        public void Update(MillCertificateSheet millCertificateSheet)
+        public void Delete(MillCertificateSheet entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<MillCertificateSheet> FindBy(string category, string search)
+        public IEnumerable<MillCertificateSheet> FindAll()
+        {
+            var query = "";
+
+            return _connection.Query<MillCertificateSheet>(query, _transaction);
+        }
+
+        public IEnumerable<MillCertificateSheet> FindByCategoryAndKeyword(string category, string keyword)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<MillCertificateSheet> FindByCreatedAt(string createdAt) 
+        {
+            var query = "";
+
+            return _connection.Query<MillCertificateSheet>(query, _transaction);
+        }
+
+        public MillCertificateSheet FindById(int id)
+        {
+            var query = "";
+
+            return _connection.QuerySingleOrDefault<MillCertificateSheet>(query, _transaction);
+        }
+
+        public int Save(MillCertificateSheet entity)
+        {
+            return (int)_connection.Insert(entity, _transaction);
+        }
+
+        public void Update(MillCertificateSheet entity)
+        {
+            _connection.Update<MillCertificateSheet>(entity, _transaction);
         }
     }
 }

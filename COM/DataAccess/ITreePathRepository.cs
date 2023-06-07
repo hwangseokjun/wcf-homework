@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace COM.DataAccess
 {
-    public interface ITreePathRepository
+    public interface ITreePathRepository : IRepository<TreePath, int>
     {
-        int Save(TreePath treePath);
-        void DeleteBy(int id);
-        List<MillCertificateSheet> FindBy(int id);
+
     }
 }

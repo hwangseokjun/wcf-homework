@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace COM.DataAccess
 {
-    public interface ITimeStampRepository
+    public interface ITimeStampRepository : IRepository<TimeStamp, int>
     {
-        int Save(DateTime today);
-        void DeleteBy(int Id);
-        bool ExistsBy(DateTime today);
     }
 }

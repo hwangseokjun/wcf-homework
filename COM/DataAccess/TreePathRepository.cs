@@ -1,6 +1,4 @@
 ﻿using COM.Models;
-using COM.Properties;
-using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -12,31 +10,38 @@ namespace COM.DataAccess
 {
     public class TreePathRepository : ITreePathRepository
     {
-        public int Save(TreePath treePath)
+        private readonly SQLiteConnection _connection;
+        private readonly SQLiteTransaction _transaction;
+
+        public TreePathRepository(SQLiteConnection connection, SQLiteTransaction transaction)
+        {
+            _connection = connection;
+            _transaction = transaction;
+        }
+
+        public void Delete(TreePath entity)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteBy(int id) 
+        public IEnumerable<TreePath> FindAll()
         {
-            var query = "";
-
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            {
-                cnn.Open();
-                cnn.Execute(query);
-            }
+            throw new NotImplementedException();
         }
 
-        public List<MillCertificateSheet> FindBy(int id)
+        public TreePath FindById(int id)
         {
-            var query = "";
+            throw new NotImplementedException();
+        }
 
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            {
-                cnn.Open();
-                return cnn.Query<MillCertificateSheet>(query).ToList();
-            }
+        public int Save(TreePath entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(TreePath entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Dapper;
-
+﻿using COM.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -7,37 +6,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using COM.Models;
-using COM.Properties;
-
 namespace COM.DataAccess
 {
     public class TimeStampRepository : ITimeStampRepository
     {
-        public int Save(DateTime today)
+        private readonly SQLiteConnection _connection;
+        private readonly SQLiteTransaction _transaction;
+
+        public TimeStampRepository(SQLiteConnection connection, SQLiteTransaction transaction)
         {
-            var query = "";
-
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            {
-                cnn.Open();
-
-                return cnn.Execute(query);
-            }
+            _connection = connection;
+            _transaction = transaction;
         }
 
-        public void DeleteBy(int Id)
+        public void Delete(TimeStamp entity)
         {
-            var query = "";
-
-            using (var cnn = new SQLiteConnection(Settings.Default.CONNECTION_STRING))
-            {
-                cnn.Open();
-                cnn.Execute(query);
-            }
+            throw new NotImplementedException();
         }
 
-        public bool ExistsBy(DateTime today)
+        public IEnumerable<TimeStamp> FindAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public TimeStamp FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Save(TimeStamp entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(TimeStamp entity)
         {
             throw new NotImplementedException();
         }

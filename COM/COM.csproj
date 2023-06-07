@@ -36,6 +36,9 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.78\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -51,11 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\IMillCertificateSheetRepository.cs" />
+    <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataAccess\ITimeStampRepository.cs" />
     <Compile Include="DataAccess\ITreePathRepository.cs" />
+    <Compile Include="DataAccess\IUnitOfWork.cs" />
     <Compile Include="DataAccess\MillCertificateSheetRepository.cs" />
     <Compile Include="DataAccess\TimeStampRepository.cs" />
     <Compile Include="DataAccess\TreePathRepository.cs" />
+    <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="Dtos\MillSheetResponseDTO.cs" />
     <Compile Include="Dtos\ModifyRequestDTO.cs" />
     <Compile Include="Dtos\RegisterRequestDTO.cs" />
