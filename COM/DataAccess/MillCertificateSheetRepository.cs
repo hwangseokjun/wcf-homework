@@ -26,6 +26,13 @@ namespace COM.DataAccess
             throw new NotImplementedException();
         }
 
+        public void DeleteById(int id)
+        {
+            var query = "";
+
+            _connection.Execute(query, _transaction);
+        }
+
         public IEnumerable<MillCertificateSheet> FindAll()
         {
             var query = "";

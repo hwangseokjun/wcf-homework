@@ -9,6 +9,7 @@ namespace COM.DataAccess
 {
     public interface IMillCertificateSheetRepository : IRepository<MillCertificateSheet, int>
     {
+        void DeleteById(int id);
         IEnumerable<MillCertificateSheet> FindByCreatedAt(string createdAt);
         IEnumerable<MillCertificateSheet> FindByCategoryAndKeyword(string category, string keyword);
     }

@@ -65,11 +65,5 @@ namespace COM.DataAccess
 
             throw new ArgumentException($"Repository of type '{typeof(TRepository).Name}' is not supported.");
         }
-
-        public void Dispose()
-        {
-            _transaction?.Dispose();
-            _connection?.Dispose();
-        }
     }
 }

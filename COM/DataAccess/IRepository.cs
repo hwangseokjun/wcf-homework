@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COM.DataAccess
 {
-    public interface IRepository<T, ID> : IDataAccess where T : class
+    public interface IRepository<T, ID> where T : class
     {
         ID Save(T entity);
         void Update(T entity);
