@@ -35,6 +35,7 @@ namespace UI.Forms
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.treeUserControl = new UI.UserControls.TreeUserControl();
             this.millCertificateSheetUserControl = new UI.UserControls.MillCertificateSheetUserControl();
+            this.ucLoadingPanel = new UI.UserControls.LoadingPanelUserControl();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,11 +92,21 @@ namespace UI.Forms
             this.millCertificateSheetUserControl.Size = new System.Drawing.Size(542, 375);
             this.millCertificateSheetUserControl.TabIndex = 1;
             // 
+            // ucLoadingPanel
+            // 
+            this.ucLoadingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ucLoadingPanel.Location = new System.Drawing.Point(193, 172);
+            this.ucLoadingPanel.Name = "ucLoadingPanel";
+            this.ucLoadingPanel.Size = new System.Drawing.Size(170, 56);
+            this.ucLoadingPanel.TabIndex = 4;
+            this.ucLoadingPanel.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 420);
+            this.Controls.Add(this.ucLoadingPanel);
             this.Controls.Add(this.treeUserControl);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.millCertificateSheetUserControl);
@@ -120,5 +131,6 @@ namespace UI.Forms
         private UserControls.MillCertificateSheetUserControl millCertificateSheetUserControl;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private UserControls.TreeUserControl treeUserControl;
+        private UserControls.LoadingPanelUserControl ucLoadingPanel;
     }
 }
