@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ci6XSvpl5M0Msir2ia3EABVyyGY8yt8lRu6wHO75LRA=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="GO3kht1YiblBldzyHbNcgQx6cSbBayZdQmGaMcxm+jQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IMillCertificateSheetService">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IMillCertificateSheetService" contract="ServiceReference1.IMillCertificateSheetService" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/" bindingConfiguration="BasicHttpBinding_IMillCertificateSheetService">
+    <endpoint name="BasicHttpBinding_IMillCertificateSheetService" contract="MillCertificateSheetService.IMillCertificateSheetService" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/" bindingConfiguration="BasicHttpBinding_IMillCertificateSheetService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>BasicHttpBinding_IMillCertificateSheetService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ServiceReference1.IMillCertificateSheetService</serializedValue>
+          <serializedValue>MillCertificateSheetService.IMillCertificateSheetService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

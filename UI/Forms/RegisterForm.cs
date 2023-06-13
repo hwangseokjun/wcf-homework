@@ -1,5 +1,4 @@
-﻿using IF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,8 +8,8 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.MillCertificateSheetService;
 using UI.Models;
-using UI.Utils;
 
 namespace UI.Forms
 {
@@ -65,41 +64,28 @@ namespace UI.Forms
             }
             #endregion
 
+            dynamic registerSheets = bsRegisterSheet.List;
+
+            using (var client = new MillCertificateSheetServiceClient()) 
+            {
+                foreach (var sheet in registerSheets)
+                {
+                    client.Add(new RegisterRequestDTO() 
+                    { 
+                        ProjectNo = sheet.ProjectNo,
+                        MillSheetNo = sheet.MillSheetNo,
+                        IssuedDate = sheet.IssuedDate,
+                        DocMngNo = sheet.DocMngNo
+                    });
+                }
+            }
         }
 
         private void dgvRegister_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (dgvRegister.IsCurrentCellDirty) 
             {
-                var cell = dgvRegister.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                IValidator validator = CreateValidatorFrom(cell.OwningColumn.DataPropertyName);
 
-                if (validator.IsValid(e.FormattedValue)) 
-                {
-                    cell.ErrorText = string.Empty;
-                    return;
-                };
-
-                // TODO: 컬럼의 이름에 따라 유효한 값을 띄워주는 에러메시지 표현하기
-                cell.ErrorText = "유효하지 않은 값입니다.";
-            }
-        }
-
-        private IValidator CreateValidatorFrom(string columnName) 
-        {
-            switch (columnName)
-            {
-                case nameof(RegisterSheet.ProjectNo):
-                    return new ProjectNoValidator();
-
-                case nameof(RegisterSheet.MillSheetNo):
-                    return new MillSheetNoValidator();
-
-                case nameof(RegisterSheet.IssuedDate):
-                    return new IssuedDateValidator();
-
-                default:
-                    return new DefaultValidator();
             }
         }
     }

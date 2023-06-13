@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cc05f6c9-6bef-4db2-9621-bb6f92c9156a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a89bbcb1-44a9-4942-b3e8-dfc3c9cd09d0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="fa4c3173-34a1-4828-b6fb-c275c8e541ce" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d398483f-f207-4d33-8d83-5c7e0add1994" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b4915446-7158-4e18-b316-41a7d463c508" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
-    <MetadataFile FileName="COM.Dtos.xsd" MetadataType="Schema" ID="f92c3668-08cb-4b67-8ac6-0ae5b02f5eb8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f24439f5-e034-43e4-9316-420cecea5fe4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f49498e3-7cba-4502-aa44-9389d7c5bd7b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="aee16890-8513-464c-a5b1-daf6ffb2066a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
+    <MetadataFile FileName="COM.Dtos.xsd" MetadataType="Schema" ID="8c366d39-bbb9-4262-bb88-b1e3bd1a2a6f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SVC/MillCertificateSheetService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

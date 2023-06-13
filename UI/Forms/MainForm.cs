@@ -31,13 +31,8 @@ namespace UI.Forms
             Close();
         }
 
-        private async void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
+        private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
-            ucLoadingPanel.Show();
-
-            await Task.Delay(10000);
-
-            ucLoadingPanel.Hide();
         }
     }
 }

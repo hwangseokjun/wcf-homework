@@ -13,17 +13,23 @@ namespace IF
     {
         [OperationContract]
         MillSheetResponseDTO Add(RegisterRequestDTO registerRequestDto);
+
+        [OperationContract]
+        List<MillSheetResponseDTO> AddRange(List<RegisterRequestDTO> registerRequestDtos);
+
         [OperationContract]
         void Modify(ModifyRequestDTO modifyRequestDto);
+
         [OperationContract]
         void DeleteById(int id);
+
         [OperationContract]
         List<MillSheetResponseDTO> GetAll();
-        [OperationContract]
-        MillSheetResponseDTO GetById(int id);
+
         [OperationContract]
         List<MillSheetResponseDTO> GetByCreatedAt(DateTime createdAt);
+
         [OperationContract]
-        List<MillSheetResponseDTO> GeyByCategoryAndKeyword(string category, string keyword);
+        List<MillSheetResponseDTO> GetByCategoryAndKeyword(string category, string keyword);
     }
 }

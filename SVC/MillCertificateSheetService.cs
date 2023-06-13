@@ -1,5 +1,4 @@
-﻿using COM.DataAccess;
-using COM.Dtos;
+﻿using COM.Dtos;
 using COM.Models;
 using SVC.Extensions;
 using IF;
@@ -9,117 +8,52 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using System.Transactions;
 using SVC.Properties;
+using COM.BLL;
 
 namespace SVC
 {
     public class MillCertificateSheetService : IMillCertificateSheetService
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMillCertificateSheetRepository _millCertificateSheetRepository;
-        private readonly ITreePathRepository _treePathRepository;
-        private readonly ITimeStampRepository _timeStampRepository;
+        private readonly MillCertificateService _millCertificateService = new MillCertificateService();
 
         public MillCertificateSheetService()
         {
-            _unitOfWork = new UnitOfWork(Settings.Default.CONNECTION_STRING);
-            _treePathRepository = _unitOfWork.GetRepository<TreePathRepository>();
-            _timeStampRepository = _unitOfWork.GetRepository<TimeStampRepository>();
-            _millCertificateSheetRepository = _unitOfWork.GetRepository<MillCertificateSheetRepository>();
-        }
-
-        public MillCertificateSheetService(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-            _treePathRepository = _unitOfWork.GetRepository<TreePathRepository>();
-            _timeStampRepository = _unitOfWork.GetRepository<TimeStampRepository>();
-            _millCertificateSheetRepository = _unitOfWork.GetRepository<MillCertificateSheetRepository>();
         }
 
         public MillSheetResponseDTO Add(RegisterRequestDTO registerRequestDto) 
         {
-            try
-            {
-                _unitOfWork.BeginTransaction();
-                var millCertificateSheet = new MillCertificateSheet(registerRequestDto);
-                int id = _millCertificateSheetRepository.Save(millCertificateSheet);
-                _unitOfWork.Commit();
+            return _millCertificateService.Add(registerRequestDto);
+        }
 
-                return new MillSheetResponseDTO
-                {
-                    Id = id,
-                    DocMngNo = millCertificateSheet.DocMngNo,
-                    ProjectNo = millCertificateSheet.ProjectNo,
-                    MillSheetNo = millCertificateSheet.MillSheetNo,
-                    IssuedDate = DateTime.Parse(millCertificateSheet.IssuedDate),
-                    CreateAt = DateTime.Parse(millCertificateSheet.CreatedAt),
-                    ModifiedAt = null
-                };
-            }
-            catch (FaultException ex) 
-            {
-                _unitOfWork.Rollback();
-                throw new FaultException($"{ex.Message}");
-            }
+        public List<MillSheetResponseDTO> AddRange(List<RegisterRequestDTO> registerRequestDtos) 
+        {
+            return _millCertificateService.AddRange(registerRequestDtos);
         }
 
         public void Modify(ModifyRequestDTO modifyRequestDto) 
         {
-            var millCertificateSheet = _millCertificateSheetRepository.FindById(modifyRequestDto.Id);
-            millCertificateSheet.Update(modifyRequestDto);
-            _millCertificateSheetRepository.Update(millCertificateSheet);
-            _unitOfWork.Commit();
+            _millCertificateService.Modify(modifyRequestDto);
         }
 
         public void DeleteById(int id) 
         {
-            var millCertificateSheet = _millCertificateSheetRepository.FindById(id);
-            millCertificateSheet.IsDeleted = "Y";
-            _millCertificateSheetRepository.Update(millCertificateSheet);
-            _unitOfWork.Commit();
+            _millCertificateService.DeleteById(id);
         }
 
         public List<MillSheetResponseDTO> GetAll() 
         {
-            var millCertificateSheets = _millCertificateSheetRepository.FindAll();
-            _unitOfWork.Commit();
-
-            return millCertificateSheets.CreateResponseDtos();
-        }
-
-        public MillSheetResponseDTO GetById(int id) 
-        {
-            MillCertificateSheet millCertificateSheet = _millCertificateSheetRepository.FindById(id);
-            _unitOfWork.Commit();
-
-            return new MillSheetResponseDTO
-            {
-                Id = millCertificateSheet.Id,
-                DocMngNo = millCertificateSheet.DocMngNo,
-                ProjectNo = millCertificateSheet.ProjectNo,
-                MillSheetNo = millCertificateSheet.MillSheetNo,
-                IssuedDate = DateTime.Parse(millCertificateSheet.IssuedDate),
-                CreateAt = DateTime.Parse(millCertificateSheet.CreatedAt),
-                ModifiedAt = millCertificateSheet.ModifiedAt is null ? null : (DateTime?)DateTime.Parse(millCertificateSheet.ModifiedAt)
-            };
+            return _millCertificateService.GetAll();
         }
 
         public List<MillSheetResponseDTO> GetByCreatedAt(DateTime createdAt) 
         {
-            var value = createdAt.ToString("yyyy-MM-dd");
-            var millCertificateSheets = _millCertificateSheetRepository.FindByCreatedAt(value);
-            _unitOfWork.Commit();
-
-            return millCertificateSheets.CreateResponseDtos();
+            return _millCertificateService.GetByCreatedAt(createdAt);
         }
 
-        public List<MillSheetResponseDTO> GeyByCategoryAndKeyword(string category, string keyword) 
+        public List<MillSheetResponseDTO> GetByCategoryAndKeyword(string category, string keyword) 
         {
-            var millCertificateSheets = _millCertificateSheetRepository.FindByCategoryAndKeyword(category, keyword);
-            _unitOfWork.Commit();
-
-            return millCertificateSheets.CreateResponseDtos();
+            return _millCertificateService.GetByCategoryAndKeyword(category, keyword);
         }
     }
 }

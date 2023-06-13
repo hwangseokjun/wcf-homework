@@ -25,7 +25,7 @@ namespace COM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=C:/Users/unbea/source/repos/WCF/COM/db.db;Version=3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=C:/Users/unbea/source/repos/WCF/COM/db.sqlite")]
         public string CONNECTION_STRING {
             get {
                 return ((string)(this["CONNECTION_STRING"]));

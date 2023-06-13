@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.MillCertificateSheetService;
 using UI.Models;
-using UI.ServiceReference1;
 
 namespace UI.UserControls
 {
@@ -18,24 +18,31 @@ namespace UI.UserControls
         {
             InitializeComponent();
 
-            //using (var client = new MillCertificateSheetServiceClient())
-            //{
-            //    MillSheetResponseDTO[] responseDtos = client.GetAll();
+            try
+            {
+                using (var client = new MillCertificateSheetServiceClient())
+                {
+                    MillSheetResponseDTO[] responseDtos = client.GetAll();
 
-            //    foreach (var responseDto in responseDtos)
-            //    {
-            //        bsMillCertificateSheet.Add(new MillCertificateSheet
-            //        {
-            //            Id = responseDto.Id,
-            //            ProjectNo = responseDto.ProjectNo,
-            //            MillSheetNo = responseDto.MillSheetNo,
-            //            IssuedDate = responseDto.IssuedDate,
-            //            CreatedAt = responseDto.CreateAt,
-            //            ModifiedAt = responseDto.ModifiedAt,
-            //            DocMngNo = responseDto.DocMngNo
-            //        });
-            //    }
-            //}
+                    foreach (var responseDto in responseDtos)
+                    {
+                        bsMillCertificateSheet.Add(new MillCertificateSheet
+                        {
+                            Id = responseDto.Id,
+                            ProjectNo = responseDto.ProjectNo,
+                            MillSheetNo = responseDto.MillSheetNo,
+                            IssuedDate = responseDto.IssuedDate,
+                            CreatedAt = responseDto.CreateAt,
+                            ModifiedAt = responseDto.ModifiedAt,
+                            DocMngNo = responseDto.DocMngNo
+                        });
+                    }
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

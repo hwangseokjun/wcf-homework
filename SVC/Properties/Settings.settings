@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="CONNECTION_STRING" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=C:/Users/unbea/source/repos/WCF/COM/db.db;Version=3</Value>
+      <Value Profile="(Default)">Data Source=C:/Users/unbea/source/repos/WCF/COM/db.db; AttachDBFileName=C:/Users/unbea/source/repos/WCF/COM/db.sqlite</Value>
     </Setting>
   </Settings>
 </SettingsFile>
